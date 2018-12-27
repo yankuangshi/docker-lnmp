@@ -35,7 +35,7 @@
 3. 拷贝环境配置文件`env.sample`为`.env`（注意：每次`env.sample`有更新，都需要重复此操作）
 
 ```
-➜ cd dockerized-centos-lnmp
+➜ cd docker-lnmp
 ➜ cp env.sample .env
 ➜ docker-compose up
 ```
@@ -54,11 +54,11 @@
 
 5. 打开浏览器访问各站点：
 
-* http://example_1.com：项目1网站
+* http://example_1.com 项目1网站
 
-* http://example_2.com：项目2网站
+* http://example_2.com 项目2网站
 
-* http://localhost:8080：phpMyAdmin页面
+* http://localhost:8080 phpMyAdmin页面
 
 ## 服务说明：
 
@@ -72,9 +72,9 @@
 
 ```
 ➜ docker-compose up -d
-Starting dockerized-centos-lnmp_phpmyadmin_1 ... done
-Starting dockerized-centos-lnmp_mysql_1      ... done
-Starting dockerized-centos-lnmp_np_1         ... done
+Starting docker-lnmp_phpmyadmin_1 ... done
+Starting docker-lnmp_mysql_1      ... done
+Starting docker-lnmp_np_1         ... done
 ```
 
 ### 创建镜像并且启动容器
@@ -89,9 +89,9 @@ Starting dockerized-centos-lnmp_np_1         ... done
 ➜ docker-compose ps
                Name                              Command               State                 Ports
 ----------------------------------------------------------------------------------------------------------------
-dockerized-centos-lnmp_mysql_1        docker-entrypoint.sh mysqld      Up      0.0.0.0:3306->3306/tcp, 33060/tcp
-dockerized-centos-lnmp_np_1           docker-entrypoint.sh             Up      0.0.0.0:80->80/tcp
-dockerized-centos-lnmp_phpmyadmin_1   /run.sh supervisord -n -j  ...   Up      0.0.0.0:8080->80/tcp, 9000/tcp
+docker-lnmp_mysql_1        docker-entrypoint.sh mysqld      Up      0.0.0.0:3306->3306/tcp, 33060/tcp
+docker-lnmp_np_1           docker-entrypoint.sh             Up      0.0.0.0:80->80/tcp
+docker-lnmp_phpmyadmin_1   /run.sh supervisord -n -j  ...   Up      0.0.0.0:8080->80/tcp, 9000/tcp
 ```
 
 ### 查看容器日志
@@ -104,13 +104,13 @@ dockerized-centos-lnmp_phpmyadmin_1   /run.sh supervisord -n -j  ...   Up      0
 
 ```
 ➜ docker-compose down
-Stopping dockerized-centos-lnmp_np_1         ... done
-Stopping dockerized-centos-lnmp_mysql_1      ... done
-Stopping dockerized-centos-lnmp_phpmyadmin_1 ... done
-Removing dockerized-centos-lnmp_np_1         ... done
-Removing dockerized-centos-lnmp_mysql_1      ... done
-Removing dockerized-centos-lnmp_phpmyadmin_1 ... done
-Removing network dockerized-centos-lnmp_default
+Stopping docker-lnmp_np_1         ... done
+Stopping docker-lnmp_mysql_1      ... done
+Stopping docker-lnmp_phpmyadmin_1 ... done
+Removing docker-lnmp_np_1         ... done
+Removing docker-lnmp_mysql_1      ... done
+Removing docker-lnmp_phpmyadmin_1 ... done
+Removing network docker-lnmp_default
 ```
 
 ### 重建服务
