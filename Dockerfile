@@ -17,7 +17,8 @@ RUN echo "~~~开始安装依赖~~~" \
     && LNMP_Auto="y" DBSelect="0" PHPSelect="5" SelectMalloc="1" ./install.sh lnmp \
     && echo "~~~清理下载包~~~" \
     && rm -rf /tmp/lnmp1.5.tar.gz \
-    && rm -rf /home/lnmp1.5
+    && rm -rf /home/lnmp1.5 \
+    && yum clean all
 
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh \
